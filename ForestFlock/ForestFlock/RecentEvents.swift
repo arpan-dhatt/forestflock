@@ -33,7 +33,7 @@ struct RecentEvents: View {
                         
                     }
                     Spacer()
-                }.frame(minWidth: 0, maxWidth: collapsed ? 0 : 400, minHeight: 100).animation(.easeIn).transition(.slide).padding().background(Color.white).shadow(radius: 10.0)
+                }.frame(minWidth: 0, maxWidth: collapsed ? 0 : 400, minHeight: 100).animation(.easeIn).transition(.slide).padding().background(Color.white).cornerRadius(10.0).shadow(radius: 10.0)
                 VStack{
                     Button(action: {collapsed.toggle()}){
                         Image(systemName: self.collapsed ? "chevron.right" : "chevron.left").font(.system(size: 50))

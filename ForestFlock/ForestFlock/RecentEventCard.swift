@@ -15,22 +15,27 @@ struct RecentEventCard: View {
     var picture: String
     var timestamp: String
     @Binding var collapsed: Bool
+    @State var internalCollapsed: Bool = true
     
     var body: some View {
         if !collapsed{
         ZStack{
-            HStack{
-                VStack(alignment: .leading){
+            VStack{
+                HStack(alignment: .top){
                     Text(messege).font(.title).bold()
+                    Image(systemName: picture).font(.system(size:50))
+                }.padding()
+                Button(action: {internalCollapsed.toggle()}){
+                    Image(systemName: self.internalCollapsed ? "chevron.down" : "chevron.up").font(.system(size: 25))
+                }
+                if !internalCollapsed{
+                VStack{
+                    Text(type).padding(.top)
                     Text("At \(timestamp)")
                     Text("Latitude: \(latitude)").padding(.vertical)
                     Text("Longitude: \(longitude)")
-                }.padding()
-                VStack{
-                    Image(systemName: picture).font(.system(size:70))
-                    Text(type).padding(.top)
-                    
-                }.padding()
+                }.padding().animation(.easeIn)
+                }
             }.padding()
         }.background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).animation(.easeOut).transition(.slide).padding(.vertical)
         }
