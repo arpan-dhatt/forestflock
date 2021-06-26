@@ -29,7 +29,7 @@ struct RecentEventCard: View {
                     Button(action: {}){
                         Text("Deploy Resources").font(.system(size:20)).scaledToFill().padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color("dharc-green"), lineWidth: 1)).foregroundColor(Color("dharc-green"))
                     }
-                    Spacer()
+                    
                     Button(action: {internalCollapsed.toggle()}){
                         Image(systemName: self.internalCollapsed ? "chevron.down" : "chevron.up").font(.system(size: 30)).foregroundColor(Color("dharc-green"))
                     }
