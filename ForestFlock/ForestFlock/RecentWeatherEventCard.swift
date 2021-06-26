@@ -12,9 +12,9 @@ struct RecentWeatherEventCard: View {
     var latitude: Double
     var longitude: Double
     var picture: String
-    var temperature: Double
-    var humidity: Double
-    var pressure: Double
+    var temperature: Float
+    var humidity: Float
+    var pressure: Float
     var timestamp: String
 
     @Binding var collapsed: Bool

@@ -27,7 +27,7 @@ struct RecentEvents: View {
                                 }
                             }
                             else {
-                                RecentWeatherEventCard(type: "Weather", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: "sun.max", temperature: update.temperature, humidity: update.humidity, pressure: update.pressure, timestamp: "Hello", collapsed: $collapsed)
+                                RecentWeatherEventCard(type: "Weather", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: "sun.max", temperature: update.temperature!, humidity: update.humidity!, pressure: update.pressure!, timestamp: "Hello", collapsed: $collapsed)
                             }
                         }
                         
