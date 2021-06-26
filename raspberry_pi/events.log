@@ -1,0 +1,44 @@
+15:42:16,363 tensorflow WARNING No training configuration found in save file, so the model was *not* compiled. Compile it manually.
+02:13:00,443 tensorflow WARNING No training configuration found in save file, so the model was *not* compiled. Compile it manually.
+02:13:02,697 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:05,381 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:06,654 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:09,420 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:10,782 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:13,574 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:14,833 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:21,786 tensorflow WARNING No training configuration found in save file, so the model was *not* compiled. Compile it manually.
+02:13:24,3 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:26,857 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:28,186 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:31,51 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:32,375 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:35,250 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:36,562 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:39,444 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:40,754 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:42,878 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:44,257 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:46,604 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:47,881 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:50,523 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:51,794 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:54,110 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:55,387 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:13:57,968 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:13:59,241 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:15:00,289 tensorflow WARNING No training configuration found in save file, so the model was *not* compiled. Compile it manually.
+02:24:37,599 tensorflow WARNING No training configuration found in save file, so the model was *not* compiled. Compile it manually.
+02:24:42,700 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:24:45,359 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:24:50,548 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:24:52,904 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:24:57,998 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:25:00,415 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:25:05,569 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:25:08,183 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:25:13,368 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:25:16,131 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:25:21,277 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
+02:25:23,997 urllib3.connectionpool DEBUG https://birdnet.cornell.edu:443 "POST /api/upload HTTP/1.1" 200 None
+02:25:29,135 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): birdnet.cornell.edu:443
