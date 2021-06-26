@@ -21,11 +21,15 @@ Adafruit_BMP085_Unified bmp = Adafruit_BMP085_Unified(10085);
 float pressure = 0;
 
 BLEPeripheral blePeripheral;
-BLEService weatherService("1111");
+BLEService weatherNodeService("1111");
 
 
-BLECharacteristic weatherChar("1A54",
+BLECharacteristic weatherNodeChar("1A54",
         BLERead | BLENotify, 32);
+
+unsigned long start_time = millis();
+unsigned long curr_time = millis();
+const unsigned long gps_delay = 43200000;
 
 void setup(){
     Serial.begin(9600);
@@ -39,36 +43,50 @@ void setup(){
         }
     }
     blePeripheral.setLocalName("Weather Node");
-    blePeripheral.setAdvertisedServiceUuid(weatherService.uuid());
-    blePeripheral.addAttribute(weatherService);
-    blePeripheral.addAttribute(weatherChar);
+    blePeripheral.setAdvertisedServiceUuid(weatherNodeService.uuid());
+    blePeripheral.addAttribute(weatherNodeService);
+    blePeripheral.addAttribute(weatherNodeChar);
     blePeripheral.begin();
 
-    unsigned long start_time = millis();
-    unsigned long curr_time = millis();
+    start_time = millis();
+    curr_time = millis();
 } 
 
 void loop(){ 
+
     
     BLECentral central = blePeripheral.central();
     if (central) {
         while(central.connected()){
-            sensors_event_t event;
-            bmp.getEvent(&event);
-            if (event.pressure){
-                pressure = event.pressure;
-            }
-            humidity = (dht1.readHumidity() + dht2.readHumidity())/2;
-            temp_cel = (dht1.readTemperature() + dht2.readTemperature())/2;
-            if(gpsSerial.available()){
-                if(gps.encode(gpsSerial.read())){  
-                    gps.f_get_position(&lat,&lon);
+            
+            curr_time = millis();
+            unsigned long elapsed = curr_time - start_time;
+
+            if(elapsed > gps_delay){
+                if(gpsSerial.available()){
+                    if(gps.encode(gpsSerial.read())){  
+                        gps.f_get_position(&lat,&lon);
+                    }
                 }
+                const unsigned char data[4] = {1212, 0x01, float(lat), float(lon)};
+            
+                weatherNodeChar.setValue(data, 28);
             }
-            
-            const unsigned char data[5] = {1212, 0x02, float(temp_cel), float(humidity), float(pressure)};
-            
-            weatherChar.setValue(data, 32);
+
+            else{
+
+                sensors_event_t event;
+                bmp.getEvent(&event);
+                if (event.pressure){
+                    pressure = event.pressure;
+                }
+                humidity = (dht1.readHumidity() + dht2.readHumidity())/2;
+                temp_cel = (dht1.readTemperature() + dht2.readTemperature())/2;
+                
+                const unsigned char data[5] = {1212, 0x02, float(temp_cel), float(humidity), float(pressure)};
+                
+                weatherNodeChar.setValue(data, 32);
+            }
 
             delay(1000); 
         }
