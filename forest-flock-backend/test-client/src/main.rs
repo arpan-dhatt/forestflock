@@ -25,6 +25,7 @@ async fn main() {
         read.for_each(|message| async {
             let msg = message.unwrap().into_data();
             tokio::io::stdout().write_all(&msg).await.unwrap();
+            tokio::io::stdout().write(b"\n").await.unwrap();
         })
     };
 

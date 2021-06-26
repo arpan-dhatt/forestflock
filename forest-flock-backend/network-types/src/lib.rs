@@ -20,7 +20,7 @@ pub enum MeshUpdate {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(untagged)]
 pub enum ServerUpdate {
     Microphone {
@@ -35,4 +35,9 @@ pub enum ServerUpdate {
         humidity: f32,
         pressure: f32
     }
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct WebsocketResponse {
+    pub data: Vec<ServerUpdate>
 }
