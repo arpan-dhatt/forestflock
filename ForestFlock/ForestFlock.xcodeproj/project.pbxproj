@@ -11,6 +11,8 @@
 		6E70E1032686EFEB002A52D5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E1022686EFEB002A52D5 /* MainView.swift */; };
 		6E70E1072686F4BA002A52D5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E1062686F4BA002A52D5 /* MapView.swift */; };
 		6E70E10A2686F63B002A52D5 /* RecentEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E1092686F63B002A52D5 /* RecentEvents.swift */; };
+		6EF46A3F2687071A009B8AA1 /* MapComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF46A3E2687071A009B8AA1 /* MapComponentView.swift */; };
+		6EF46A4226870878009B8AA1 /* RecentEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF46A4126870878009B8AA1 /* RecentEventCard.swift */; };
 		7883044E2686DF6100DBECFB /* ForestFlockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7883044D2686DF6100DBECFB /* ForestFlockApp.swift */; };
 		788304502686DF6100DBECFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7883044F2686DF6100DBECFB /* ContentView.swift */; };
 		788304522686DF6200DBECFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788304512686DF6200DBECFB /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		6E70E1022686EFEB002A52D5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ForestFlock/MainView.swift; sourceTree = SOURCE_ROOT; };
 		6E70E1062686F4BA002A52D5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		6E70E1092686F63B002A52D5 /* RecentEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentEvents.swift; sourceTree = "<group>"; };
+		6EF46A3E2687071A009B8AA1 /* MapComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapComponentView.swift; sourceTree = "<group>"; };
+		6EF46A4126870878009B8AA1 /* RecentEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentEventCard.swift; sourceTree = "<group>"; };
 		7883044A2686DF6100DBECFB /* ForestFlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForestFlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7883044D2686DF6100DBECFB /* ForestFlockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ForestFlockApp.swift; path = ForestFlock/ForestFlockApp.swift; sourceTree = SOURCE_ROOT; };
 		7883044F2686DF6100DBECFB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ForestFlock/ContentView.swift; sourceTree = SOURCE_ROOT; };
@@ -77,6 +81,8 @@
 				6E70E1022686EFEB002A52D5 /* MainView.swift */,
 				6E70E1062686F4BA002A52D5 /* MapView.swift */,
 				6E70E1092686F63B002A52D5 /* RecentEvents.swift */,
+				6EF46A3E2687071A009B8AA1 /* MapComponentView.swift */,
+				6EF46A4126870878009B8AA1 /* RecentEventCard.swift */,
 			);
 			path = ForestFlock;
 			sourceTree = "<group>";
@@ -163,6 +169,8 @@
 				6E70E1072686F4BA002A52D5 /* MapView.swift in Sources */,
 				6E70E0FF2686EF7B002A52D5 /* ViewModel.swift in Sources */,
 				7883044E2686DF6100DBECFB /* ForestFlockApp.swift in Sources */,
+				6EF46A4226870878009B8AA1 /* RecentEventCard.swift in Sources */,
+				6EF46A3F2687071A009B8AA1 /* MapComponentView.swift in Sources */,
 				6E70E10A2686F63B002A52D5 /* RecentEvents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
