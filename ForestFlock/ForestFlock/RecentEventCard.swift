@@ -15,29 +15,37 @@ struct RecentEventCard: View {
     var picture: String
     var timestamp: String
     @Binding var collapsed: Bool
-    @State var internalCollapsed: Bool = true
+    @State var internalCollapsed: Bool 
     
     var body: some View {
         if !collapsed{
         ZStack{
             VStack{
-                HStack(alignment: .top){
-                    Text(messege).font(.title).bold()
+                VStack(alignment: .center){
                     Image(systemName: picture).font(.system(size:50))
+                    Text(messege).font(.title).bold().multilineTextAlignment(.center)
                 }.padding()
-                Button(action: {internalCollapsed.toggle()}){
-                    Image(systemName: self.internalCollapsed ? "chevron.down" : "chevron.up").font(.system(size: 25))
-                }
+                HStack{
+                    Button(action: {}){
+                        Text("Deploy Resources").font(.system(size:20)).scaledToFill().padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color("dharc-green"), lineWidth: 1)).foregroundColor(Color("dharc-green"))
+                    }
+                    Spacer()
+                    Button(action: {internalCollapsed.toggle()}){
+                        Image(systemName: self.internalCollapsed ? "chevron.down" : "chevron.up").font(.system(size: 30)).foregroundColor(Color("dharc-green"))
+                    }
+
+                }.padding(.bottom)
                 if !internalCollapsed{
-                VStack{
-                    Text(type).padding(.top)
-                    Text("At \(timestamp)")
-                    Text("Latitude: \(latitude)").padding(.vertical)
+                    VStack(alignment: .leading){
+                    Divider()
+                    Text("At: \(timestamp)")
+                    Text("Latitude: \(latitude)")
                     Text("Longitude: \(longitude)")
+                    Text("Sensor: \(type)").padding(.top)
                 }.padding().animation(.easeIn)
                 }
             }.padding()
-        }.background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).animation(.easeOut).transition(.slide).padding(.vertical)
+        }.frame(maxWidth: .infinity).background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).animation(.easeOut).transition(.slide).padding()
         }
     }
 }

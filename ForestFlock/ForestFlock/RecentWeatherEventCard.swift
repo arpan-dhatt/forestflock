@@ -18,28 +18,54 @@ struct RecentWeatherEventCard: View {
     var timestamp: String
 
     @Binding var collapsed: Bool
+    @State var internalCollapsed: Bool = true
     
     var body: some View {
         if !collapsed{
-        ZStack{
-            HStack{
-                VStack(alignment: .leading){
-                    Text("Weather Update").font(.title).bold()
-                    Text("At \(timestamp)")
-                    Text("Latitude: \(latitude)").padding(.vertical)
-                    Text("Longitude: \(longitude)")
-                    Text("Temperature: \(temperature)")
-                    Text("Humidity: \(humidity)")
-                    Text("Pressure: \(pressure)")
-                }.padding()
+            ZStack{
                 VStack{
-                    Image(systemName: picture).font(.system(size:70))
-                    Text(type).padding(.top)
-                    
+                    VStack(alignment: .center){
+                        Image(systemName: picture).font(.system(size:50))
+                        Text("WEATHER Update").font(.title).bold().multilineTextAlignment(.center)
+                    }.padding()
+                    Button(action: {internalCollapsed.toggle()}){
+                        Image(systemName: self.internalCollapsed ? "chevron.down" : "chevron.up").font(.system(size: 50)).padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.blue, lineWidth: 1))
+                    }
+                    if !internalCollapsed{
+                        VStack(alignment: .leading){
+                            Divider()
+                        Text("At: \(timestamp)")
+                        Text("Latitude: \(latitude)")
+                        Text("Longitude: \(longitude)")
+                            Divider()
+                        Text("Temperature: \(temperature)")
+                        Text("Humidity: \(humidity)")
+                        Text("Pressure: \(pressure)")
+                            Text("Sensor: Weather Station").padding(.top)
+                    }.padding().animation(.easeIn)
+                    }
                 }.padding()
-            }.padding()
-        }.background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).animation(.easeOut).transition(.slide).padding(.vertical)
-        }
+            }.frame(maxWidth: .infinity).background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).animation(.easeOut).transition(.slide).padding()
+            
+//        ZStack{
+//            HStack{
+//                VStack(alignment: .leading){
+//                    Text("Weather Update").font(.title).bold()
+//                    Text("At \(timestamp)")
+//                    Text("Latitude: \(latitude)").padding(.vertical)
+//                    Text("Longitude: \(longitude)")
+//                    Text("Temperature: \(temperature)")
+//                    Text("Humidity: \(humidity)")
+//                    Text("Pressure: \(pressure)")
+//                }.padding()
+//                VStack{
+//                    Image(systemName: picture).font(.system(size:70))
+//                    Text(type).padding(.top)
+//                    
+//                }.padding()
+//            }.padding()
+//        }.background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).animation(.easeOut).transition(.slide).padding(.vertical)
+ }
     }
 }
 

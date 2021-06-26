@@ -17,11 +17,11 @@ struct RecentEvents: View {
             HStack{
                 HStack{
                 VStack{
-                    Text("Recent Events").font(.title)
                     ScrollView{
+                    Text("Recent Events").font(.largeTitle).bold().padding(.vertical, 50)
                         ForEach(viewModel.updates.reversed(), id: \.id){update in
                             if update.sound_class != nil {
-                                RecentEventCard(messege: "An Wild \(update.sound_class ?? "Error") Detected", type: "Sound", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.eventCardImage(name: update.sound_class!), timestamp: update.timestamp, collapsed: $collapsed).padding(.vertical).onTapGesture {
+                                RecentEventCard(messege: "\(update.sound_class?.uppercased() ?? "Error") Detected", type: "Sound", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.eventCardImage(name: update.sound_class!), timestamp: update.timestamp, collapsed: $collapsed, internalCollapsed: true).padding(.vertical).onTapGesture {
                                     viewModel.selectedDeviceID = update.device_id
                                     showingSheet.toggle()
                                 }
@@ -33,11 +33,12 @@ struct RecentEvents: View {
                         
                     }
                     Spacer()
-                }.frame(minWidth: 0, maxWidth: collapsed ? 0 : 400, minHeight: 100).animation(.easeIn).transition(.slide).padding().background(Color.white).cornerRadius(10.0).shadow(radius: 10.0)
-                VStack{
+                }.frame(minWidth: 0, maxWidth: collapsed ? 0 : 400, minHeight: 100).animation(.easeInOut).background(Color.white).cornerRadius(10.0).shadow(radius: 10.0)
+                    VStack{
+                        Spacer()
                     Button(action: {collapsed.toggle()}){
-                        Image(systemName: self.collapsed ? "chevron.right" : "chevron.left").font(.system(size: 50))
-                    }.padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.gray, lineWidth: 1))
+                        Image(systemName: self.collapsed ? "chevron.right" : "chevron.left").font(.system(size: 50)).foregroundColor(.white)
+                    }.padding().background(Color("dharc-green")).cornerRadius(10.0)
                     Spacer()
                 }.padding()
                 }
