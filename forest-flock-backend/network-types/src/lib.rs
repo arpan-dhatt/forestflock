@@ -20,7 +20,7 @@ pub enum MeshUpdate {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(untagged)]
 pub enum ServerUpdate {
     Microphone {
