@@ -11,9 +11,9 @@ struct Dashboard: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text("Daeshboard").font(.bold(.system(size: 80))()).padding(.leading, 45.0)
+                Text("Daeshboard").font(.system(size: 80, weight: .bold)).padding(.leading, 45.0)
                 VStack(alignment: .leading) {
-                    Text("First Section").font(.bold(.system(size: 40))()).padding(.leading, 45.0)
+                    Text("First Section").font(.system(size: 40, weight: .bold)).padding(.leading, 45.0)
                     ScrollView(.horizontal) {
                         HStack(spacing: 30.0) {
                             FireWidget()
@@ -29,7 +29,7 @@ struct Dashboard: View {
                     }.padding([.leading, .trailing], 40.0)
                 }.padding(.top, 30.0)
                 VStack(alignment: .leading) {
-                    Text("First Section").font(.bold(.system(size: 40))()).padding(.leading, 45.0)
+                    Text("First Section").font(.system(size: 40, weight: .bold)).padding(.leading, 45.0)
                     ScrollView(.horizontal) {
                         HStack(spacing: 30.0) {
                             FireWidget()
