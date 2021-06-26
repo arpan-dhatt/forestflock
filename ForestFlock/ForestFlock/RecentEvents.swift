@@ -10,6 +10,7 @@ import SwiftUI
 struct RecentEvents: View {
     @State var collapsed = true
     @State var showingSheet = false
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         ZStack{
@@ -18,8 +19,13 @@ struct RecentEvents: View {
                 VStack{
                     Text("Recent Events").font(.title)
                     ScrollView{
-                        RecentEventCard(messege: "An Wild Vivek Detected", type: "Animals", latitude: 100.0, longitude: 100.0, picture: "ladybug", collapsed: $collapsed).padding(.vertical).onTapGesture {
-                            showingSheet.toggle()
+                        ForEach(viewModel.updates.reversed(), id: \.id){update in
+                            if update.sound_class != nil {
+                                RecentEventCard(messege: "An Wild \(update.sound_class ?? "Error") Detected", type: "Sound", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.eventCardImage(name: update.sound_class!), collapsed: $collapsed).padding(.vertical).onTapGesture {
+                                    viewModel.selectedDeviceID = update.device_id
+                                    showingSheet.toggle()
+                                }
+                            }
                         }
                         RecentEventCard(messege: "An Wild Vivek Detected", type: "Animals", latitude: 100.0, longitude: 100.0, picture: "ladybug", collapsed: $collapsed).padding(.vertical)
                         RecentEventCard(messege: "An Wild Vivek Detected", type: "Animals", latitude: 100.0, longitude: 100.0, picture: "ladybug", collapsed: $collapsed).padding(.vertical)
@@ -37,13 +43,13 @@ struct RecentEvents: View {
                 Spacer()
             }
         }.sheet(isPresented: $showingSheet){
-            Text("Hello")
+            Devicesheet(device_id: viewModel.selectedDeviceID)
         }
     }
 }
 
 struct RecentEvents_Previews: PreviewProvider {
     static var previews: some View {
-        RecentEvents()
+        RecentEvents().environmentObject(ViewModel())
     }
 }
