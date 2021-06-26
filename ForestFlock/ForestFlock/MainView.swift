@@ -14,7 +14,7 @@ struct MainView: View {
     var body: some View {
         TabView(selection: $tabSelection){
             MapView().tabItem { Label("Map", systemImage:"map")}.tag(0)
-            MapView().tabItem { Label("Dashbord", systemImage:"bonjour") }.tag(1)
+            Dashboard().tabItem { Label("Dashbord", systemImage:"bonjour") }.tag(1)
         }
     }
 }

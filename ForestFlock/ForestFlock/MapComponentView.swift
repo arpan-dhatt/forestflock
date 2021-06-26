@@ -15,7 +15,29 @@ struct MapComponentView: View {
     var body: some View {
         ZStack{
             Map(coordinateRegion: $coordinateRegion, annotationItems: viewModel.markers){place in
-                MapMarker(coordinate: place.coordinate, tint: place.color)
+                //MapMarker(coordinate: place.coordinate, tint: place.color)
+                MapAnnotation(
+                    coordinate: place.coordinate,
+                    anchorPoint: CGPoint(x: 0.5, y: 0.7)
+                ) {
+                    ZStack{
+                        Image(systemName: "mappin.circle.fill")
+                            .font(.title)
+                            .foregroundColor(.red)
+                            .onTapGesture {
+                                let index: Int = viewModel.markers.firstIndex(where: {$0.id == place.id})!
+                                viewModel.markers[index].show.toggle()
+                                print("success")
+                            }
+                        if place.show {
+                            VStack{
+                                Text("Hello")
+                            }.frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding().background(Color.white).offset(x:0, y:-100)
+                        }
+                        
+                    }
+                    
+                }
             }.ignoresSafeArea(.all).onTapGesture {
                 viewModel.showingSheet = true
             }
@@ -35,6 +57,7 @@ struct marker:Identifiable {
     let latitude: Double
     let longitude: Double
     let color: Color
+    var show = false
     
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
