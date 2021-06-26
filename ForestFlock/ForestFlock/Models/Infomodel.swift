@@ -5,9 +5,8 @@
 //  Created by user175571 on 6/26/21.
 //
 
-import Foundation
 import SwiftUI
-
+import MapKit
 
 struct InfoModel {
     
@@ -23,16 +22,29 @@ enum domicile: String, CaseIterable, Identifiable{
     var id: String{self.rawValue}
 }
 
-struct MicrophoneUpdate {
+struct Update {
     var device_id: UInt32
     var timestamp: String
-    var sound_class: String
+    var sound_class: String?
+    var temperature: Float?
+    var humidity: Float?
+    var pressure: Float?
+    var id = UUID()
 }
 
-struct WeatherUpdate {
+struct Device:Identifiable {
     var device_id: UInt32
-    var timestamp: String
-    var temperature: Float
-    var humidity: Float
-    var pressure: Float
+    var type: String
+    var latitude: Double
+    var longitude: Double
+    let color: Color
+    var show = false
+    var id = UUID()
+
+    
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 }
+
+

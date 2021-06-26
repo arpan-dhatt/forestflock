@@ -14,7 +14,7 @@ struct MapComponentView: View {
     
     var body: some View {
         ZStack{
-            Map(coordinateRegion: $coordinateRegion, annotationItems: viewModel.markers){place in
+            Map(coordinateRegion: $coordinateRegion, annotationItems: viewModel.devices){place in
                 //MapMarker(coordinate: place.coordinate, tint: place.color)
                 MapAnnotation(
                     coordinate: place.coordinate,
@@ -25,8 +25,8 @@ struct MapComponentView: View {
                             .font(.title)
                             .foregroundColor(.red)
                             .onTapGesture {
-                                let index: Int = viewModel.markers.firstIndex(where: {$0.id == place.id})!
-                                viewModel.markers[index].show.toggle()
+                                let index: Int = viewModel.devices.firstIndex(where: {$0.id == place.id})!
+                                viewModel.devices[index].show.toggle()
                                 print("success")
                             }
                         if place.show {
