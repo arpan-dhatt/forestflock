@@ -17,10 +17,11 @@ struct Devicesheet: View {
             VStack{
                 HStack{
                     VStack(alignment: .leading){
-                        Text("Device ID: \(device_id)")
-                        Text("Latitude: \(viewModel.getDeviceLatitude(device: device_id))")
-                        Text("Longitude: \(viewModel.getDeviceLongitude(device: device_id))")
-                        Text("Type: \(viewModel.getDeviceType(device: device_id))")
+                        Text("Device ID: \(device_id)").font(.title).bold()
+                        Text("Latitude: \(viewModel.getDeviceLatitude(device: device_id))").font(.headline).padding(.top)
+                        Text("Longitude: \(viewModel.getDeviceLongitude(device: device_id))").font(.headline).padding(.bottom)
+                        Text("Type: \(viewModel.getDeviceType(device: device_id))").font(.body)
+                        Spacer()
                     }
                     Spacer()
                     VStack{

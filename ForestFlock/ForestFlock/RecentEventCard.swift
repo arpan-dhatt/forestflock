@@ -27,7 +27,7 @@ struct RecentEventCard: View {
                 }.padding()
                 HStack{
                     Button(action: {}){
-                        Text("Deploy Resources").font(.system(size:20)).scaledToFill().padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color("dharc-green"), lineWidth: 1)).foregroundColor(Color("dharc-green"))
+                        Text("Alert Resources").font(.system(size:20)).scaledToFill().padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color("dharc-green"), lineWidth: 1)).foregroundColor(Color("dharc-green"))
                     }
                     
                     Button(action: {internalCollapsed.toggle()}){
