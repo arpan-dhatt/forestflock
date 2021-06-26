@@ -43,6 +43,9 @@ void setup(){
     blePeripheral.addAttribute(weatherService);
     blePeripheral.addAttribute(weatherChar);
     blePeripheral.begin();
+
+    unsigned long start_time = millis();
+    unsigned long curr_time = millis();
 } 
 
 void loop(){ 
