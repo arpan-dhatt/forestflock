@@ -33,6 +33,9 @@ struct Devicesheet: View {
                         if update.device_id == device_id && update.sound_class != nil{
                             RecentEventCard(messege: "An Wild \(update.sound_class ?? "Error") Detected", type: "Sound", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.eventCardImage(name: update.sound_class!), timestamp: update.timestamp, collapsed: $collapsed, internalCollapsed: false).padding(.vertical)
                         }
+                        else if update.device_id == device_id && update.sound_class == nil {
+                            RecentWeatherEventCard(type: "Weather", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.weatherCardImage(temperature: update.temperature!), temperature: update.temperature!, humidity: update.humidity!, pressure: update.pressure!, timestamp: update.timestamp, collapsed: $collapsed, internalCollapsed: false)
+                        }
                     }.padding()
                     }
                 }

@@ -26,10 +26,16 @@ struct RecentWeatherEventCard: View {
                 VStack{
                     VStack(alignment: .center){
                         Image(systemName: picture).font(.system(size:50))
-                        Text("WEATHER Update").font(.title).bold().multilineTextAlignment(.center)
+                        Text("WEATHER Update").font(.title).bold().multilineTextAlignment(.center).padding(.top)
                     }.padding()
-                    Button(action: {internalCollapsed.toggle()}){
-                        Image(systemName: self.internalCollapsed ? "chevron.down" : "chevron.up").font(.system(size: 50)).padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.blue, lineWidth: 1))
+                    HStack{
+                        Button(action: {}){
+                            Text("Deploy Resources").font(.system(size:20)).scaledToFill().padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color("dharc-green"), lineWidth: 1)).foregroundColor(Color("dharc-green"))
+                        }
+                        
+                        Button(action: {internalCollapsed.toggle()}){
+                            Image(systemName: self.internalCollapsed ? "chevron.down" : "chevron.up").font(.system(size: 30)).foregroundColor(Color("dharc-green"))
+                        }
                     }
                     if !internalCollapsed{
                         VStack(alignment: .leading){

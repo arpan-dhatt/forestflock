@@ -23,7 +23,7 @@ struct RecentEventCard: View {
             VStack{
                 VStack(alignment: .center){
                     Image(systemName: picture).font(.system(size:50))
-                    Text(messege).font(.title).bold().multilineTextAlignment(.center)
+                    Text(messege).font(.title).bold().multilineTextAlignment(.center).padding(.top)
                 }.padding()
                 HStack{
                     Button(action: {}){
