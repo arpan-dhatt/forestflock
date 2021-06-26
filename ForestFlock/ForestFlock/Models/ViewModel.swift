@@ -75,5 +75,14 @@ class ViewModel: ObservableObject {
         return "Error"
     }
     
+    func getMostRecentTimestamp(device: UInt32) -> String {
+        for number in updates.reversed() {
+            if number.device_id == device {
+                return number.timestamp
+            }
+        }
+        return "No Recent Events"
+    }
+    
      
 }
