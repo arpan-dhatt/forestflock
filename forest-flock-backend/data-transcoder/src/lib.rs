@@ -169,19 +169,20 @@ pub fn decode_weather_data(data: &[u8]) -> (u32, f32, f32, f32) {
     )
 }
 
-pub fn encode_microphone_data(device_id: u32, class: u8) -> [u8; 20] {
+pub fn encode_microphone_data(device_id: u32, class: u32) -> [u8; 20] {
     let mut out = [0u8; 20];
     let device_id_bytes = device_id.to_be_bytes();
     write_4_bytes(&device_id_bytes, &mut out, 0);
     out[4] = 0x04;
-    out[5] = class;
+    let class_bytes = class.to_be_bytes();
+    write_4_bytes(&class_bytes, &mut out, 5);
     return out
 }
 
-pub fn decode_microphone_data(data: &[u8]) -> (u32, u8) {
+pub fn decode_microphone_data(data: &[u8]) -> (u32, u32) {
     (
         u32::from_be_bytes(u8_4_array(&data[0..4])),
-        data[5]
+        u32::from_be_bytes(u8_4_array(&data[5..9]))
     )
 }
 
