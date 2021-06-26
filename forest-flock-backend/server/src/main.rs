@@ -68,10 +68,15 @@ async fn main() -> Result<(), IoError> {
         .nth(1)
         .unwrap_or_else(|| "127.0.0.1:8080".to_string());
 
-    let (tx, rx) = unbounded();
+    let (tx, mut rx) = unbounded();
     // Create the event loop and TCP listener that will receive 
     tokio::spawn(async move {
         mesh_egress::mesh_listener(tx).await;
+    });
+    tokio::spawn(async move {
+        while let Some(v) = rx.next().await {
+            println!("{:?}", v);
+        }
     });
 
     let state = PeerMap::new(Mutex::new(HashMap::new()));

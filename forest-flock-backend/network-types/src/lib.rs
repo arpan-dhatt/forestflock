@@ -26,7 +26,7 @@ pub enum ServerUpdate {
     Microphone {
         device_id: u32,
         timestamp: chrono::DateTime<chrono::Utc>,
-        class: u8
+        sound_class: String
     },
     Weather {
         device_id: u32,
@@ -34,11 +34,5 @@ pub enum ServerUpdate {
         temperature: f32,
         humidity: f32,
         pressure: f32
-    }
-}
-
-impl From<MeshUpdate> for ServerUpdate {
-    fn from(_: MeshUpdate) -> Self {
-        
     }
 }
