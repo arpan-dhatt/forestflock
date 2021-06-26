@@ -13,7 +13,7 @@ use db_driver::store_update;
 use futures_channel::mpsc::{unbounded, UnboundedReceiver, UnboundedSender};
 use futures_util::{future, pin_mut, stream::TryStreamExt, StreamExt};
 
-use network_types::ServerUpdate;
+use network_types::{ServerUpdate, WebsocketResponse};
 use tokio::net::{TcpListener, TcpStream};
 use tokio_tungstenite::tungstenite::protocol::Message;
 
@@ -46,7 +46,7 @@ async fn handle_connection(
         .filter_map(|e| e.ok())
         .filter_map(|e| serde_json::from_slice(&e).ok())
         .collect();
-    let json_bytes = serde_json::to_vec(&update_list).unwrap();
+    let json_bytes = serde_json::to_vec(&WebsocketResponse { data: update_list }).unwrap();
     tx.unbounded_send(Message::binary(json_bytes)).unwrap();
     {
         peer_map.lock().unwrap().insert(addr, tx);
@@ -113,7 +113,10 @@ async fn receive_server_updates(
         println!("received update, forwarding to ws");
         let peers = peer_map.lock().unwrap();
         println!("sending to {} peers", peers.len());
-        let json_bytes = serde_json::to_vec(&vec![update.clone()]).unwrap();
+        let json_bytes = serde_json::to_vec(&WebsocketResponse {
+            data: vec![update.clone()],
+        })
+        .unwrap();
         println!(
             "converted to json: {}",
             String::from_utf8_lossy(&json_bytes)

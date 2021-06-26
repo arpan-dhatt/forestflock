@@ -36,3 +36,8 @@ pub enum ServerUpdate {
         pressure: f32
     }
 }
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct WebsocketResponse {
+    pub data: Vec<ServerUpdate>
+}
