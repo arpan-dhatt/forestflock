@@ -45,7 +45,7 @@ struct MapComponentView: View {
                                 }){
                                     Text("See Alerts").font(.system(size:20)).scaledToFill().padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color("dharc-green"), lineWidth: 1)).foregroundColor(Color("dharc-green")).padding(.bottom)
                                 }
-                            }.frame(width: 200, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding().background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).offset(x:0, y:-100)
+                            }.frame(width: 200, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding().background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).offset(x:0, y:-175)
                         }
                         
                     }
