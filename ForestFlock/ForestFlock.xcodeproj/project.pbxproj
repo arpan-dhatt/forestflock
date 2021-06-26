@@ -21,6 +21,8 @@
 		788304502686DF6100DBECFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7883044F2686DF6100DBECFB /* ContentView.swift */; };
 		788304522686DF6200DBECFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788304512686DF6200DBECFB /* Assets.xcassets */; };
 		788304552686DF6200DBECFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788304542686DF6200DBECFB /* Preview Assets.xcassets */; };
+		78EDE0412687DAB800C02BA4 /* FireWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EDE0402687DAB800C02BA4 /* FireWidget.swift */; };
+		78EDE0432687DE5900C02BA4 /* SpeciesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EDE0422687DE5900C02BA4 /* SpeciesWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		788304512686DF6200DBECFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		788304542686DF6200DBECFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Preview Assets.xcassets"; path = "ForestFlock/Preview Content/Preview Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		788304562686DF6200DBECFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78EDE0402687DAB800C02BA4 /* FireWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWidget.swift; sourceTree = "<group>"; };
+		78EDE0422687DE5900C02BA4 /* SpeciesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		7883044C2686DF6100DBECFB /* ForestFlock */ = {
 			isa = PBXGroup;
 			children = (
+				78EDE03F2687DA8E00C02BA4 /* DashboardWidgets */,
 				6E70E0FD2686EF62002A52D5 /* Models */,
 				7883044D2686DF6100DBECFB /* ForestFlockApp.swift */,
 				7883044F2686DF6100DBECFB /* ContentView.swift */,
@@ -105,6 +110,15 @@
 				788304542686DF6200DBECFB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		78EDE03F2687DA8E00C02BA4 /* DashboardWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				78EDE0402687DAB800C02BA4 /* FireWidget.swift */,
+				78EDE0422687DE5900C02BA4 /* SpeciesWidget.swift */,
+			);
+			path = DashboardWidgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +194,7 @@
 				6E70E1032686EFEB002A52D5 /* MainView.swift in Sources */,
 				6E70E1072686F4BA002A52D5 /* MapView.swift in Sources */,
 				6E70E0FF2686EF7B002A52D5 /* ViewModel.swift in Sources */,
+				78EDE0432687DE5900C02BA4 /* SpeciesWidget.swift in Sources */,
 				6E45E5B32687A1E500965A41 /* RecentWeatherEventCard.swift in Sources */,
 				6E45E5AA26877D4800965A41 /* Dashboard.swift in Sources */,
 				6E45E5AD26877F8900965A41 /* Infomodel.swift in Sources */,
@@ -188,6 +203,7 @@
 				6EF46A4226870878009B8AA1 /* RecentEventCard.swift in Sources */,
 				6EF46A3F2687071A009B8AA1 /* MapComponentView.swift in Sources */,
 				6E70E10A2686F63B002A52D5 /* RecentEvents.swift in Sources */,
+				78EDE0412687DAB800C02BA4 /* FireWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

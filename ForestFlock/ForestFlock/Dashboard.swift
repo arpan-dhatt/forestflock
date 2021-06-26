@@ -9,9 +9,24 @@ import SwiftUI
 
 struct Dashboard: View {
     var body: some View {
-        ZStack{
-            VStack{
-                Text("DaeshBoard")
+        ScrollView {
+            
+            VStack(alignment: .leading) {
+                Text("Daeshboard").font(.bold(.system(size: 80))()).padding(.leading, 45.0)
+                VStack {
+                    HStack {
+                        FireWidget()
+                        FireWidget()
+                        FireWidget()
+                    }.padding([.leading, .trailing], 40.0)
+                    HStack {
+                        Text("graph")
+                    }
+                    HStack {
+                        Text("coverage")
+                        Text("health")
+                    }
+                }.padding(.top, 30.0)
             }
         }
     }
