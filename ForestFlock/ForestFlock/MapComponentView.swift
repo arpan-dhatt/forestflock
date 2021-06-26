@@ -11,6 +11,7 @@ import MapKit
 struct MapComponentView: View {
     @State var coordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 32.88715, longitude: -97.04404), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     @EnvironmentObject var viewModel: ViewModel
+    @State var showingSheet = false
     
     var body: some View {
         ZStack{
@@ -30,15 +31,25 @@ struct MapComponentView: View {
                                 print("success")
                             }
                         if place.show {
-                            VStack{
-                                Text("Hello")
-                            }.frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding().background(Color.white).offset(x:0, y:-100)
+                            VStack(alignment: .leading){
+                                Text("ID: \(place.device_id)").font(.title2).bold()
+                                Text("Latitude: \(place.latitude, specifier: "%.2f")").padding(.top)
+                                Text("Longitude: \(place.longitude, specifier: "%.2f")").padding(.bottom)
+                                Text("Type: \(place.type)")
+                                Button(action:{
+                                    
+                                }){
+                                    
+                                }
+                            }.frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding().background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).offset(x:0, y:-100)
                         }
                         
                     }
                     
                 }
             }.ignoresSafeArea(.all)
+        }.sheet(isPresented: $showingSheet){
+            
         }
     }
 }
