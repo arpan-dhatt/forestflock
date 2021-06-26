@@ -9,13 +9,18 @@ use std::{
     sync::{Arc, Mutex},
 };
 
-use futures_channel::mpsc::{unbounded, UnboundedSender};
+use db_driver::store_update;
+use futures_channel::mpsc::{unbounded, UnboundedSender, UnboundedReceiver};
 use futures_util::{future, pin_mut, stream::TryStreamExt, StreamExt};
 
+use network_types::ServerUpdate;
 use tokio::net::{TcpListener, TcpStream};
 use tokio_tungstenite::tungstenite::protocol::Message;
 
+use crate::{db_driver::initialize_db, mesh_egress::mesh_listener};
+
 type Tx = UnboundedSender<Message>;
+type Database = Arc<sled::Db>;
 type PeerMap = Arc<Mutex<HashMap<SocketAddr, Tx>>>;
 
 async fn handle_connection(peer_map: PeerMap, raw_stream: TcpStream, addr: SocketAddr) {
@@ -28,7 +33,9 @@ async fn handle_connection(peer_map: PeerMap, raw_stream: TcpStream, addr: Socke
 
     // Insert the write part of this peer to the peer map.
     let (tx, rx) = unbounded();
-    peer_map.lock().unwrap().insert(addr, tx);
+    {
+        peer_map.lock().unwrap().insert(addr, tx);
+    }
 
     let (outgoing, incoming) = ws_stream.split();
 
@@ -38,25 +45,14 @@ async fn handle_connection(peer_map: PeerMap, raw_stream: TcpStream, addr: Socke
             addr,
             msg.to_text().unwrap()
         );
-        let peers = peer_map.lock().unwrap();
-
-        // We want to broadcast the message to everyone except ourselves.
-        let broadcast_recipients = peers
-            .iter()
-            .filter(|(peer_addr, _)| peer_addr != &&addr)
-            .map(|(_, ws_sink)| ws_sink);
-
-        for recp in broadcast_recipients {
-            recp.unbounded_send(msg.clone()).unwrap();
-        }
 
         future::ok(())
     });
 
-    let receive_from_others = rx.map(Ok).forward(outgoing);
+    let sender = rx.map(Ok).forward(outgoing);
 
-    pin_mut!(broadcast_incoming, receive_from_others);
-    future::select(broadcast_incoming, receive_from_others).await;
+    pin_mut!(broadcast_incoming, sender);
+    future::select(broadcast_incoming, sender).await;
 
     println!("{} disconnected", &addr);
     peer_map.lock().unwrap().remove(&addr);
@@ -68,18 +64,17 @@ async fn main() -> Result<(), IoError> {
         .nth(1)
         .unwrap_or_else(|| "127.0.0.1:8080".to_string());
 
-    let (tx, mut rx) = unbounded();
-    // Create the event loop and TCP listener that will receive 
-    tokio::spawn(async move {
-        mesh_egress::mesh_listener(tx).await;
-    });
-    tokio::spawn(async move {
-        while let Some(v) = rx.next().await {
-            println!("{:?}", v);
-        }
-    });
-
+    let db = Arc::new(initialize_db("updates.data"));
     let state = PeerMap::new(Mutex::new(HashMap::new()));
+
+    let (tx, rx) = unbounded();
+    tokio::spawn(async move {
+        mesh_listener(tx).await;
+    });
+    let server_update_arc = state.clone();
+    tokio::spawn(async move {
+        receive_server_updates(db.clone(), server_update_arc.clone(), rx).await;
+    });
 
     // Create the event loop and TCP listener we'll accept connections on.
     let try_socket = TcpListener::bind(&addr).await;
@@ -92,4 +87,19 @@ async fn main() -> Result<(), IoError> {
     }
 
     Ok(())
+}
+
+async fn receive_server_updates(db: Database, peer_map: PeerMap, mut event_stream: UnboundedReceiver<ServerUpdate>) {
+    while let Some(update) = event_stream.next().await {
+        println!("received update, forwarding to ws");
+        let peers = peer_map.lock().unwrap();
+        println!("sending to {} peers", peers.len());
+        let json_bytes = serde_json::to_vec(&update).unwrap();
+        println!("converted to json: {}", String::from_utf8_lossy(&json_bytes));
+        store_update(&db, update);
+        for (addr,recp) in peers.iter() {
+            println!("sending to {}", addr);
+            recp.unbounded_send(Message::binary(json_bytes.clone())).unwrap();
+        }
+    }
 }

@@ -13,7 +13,6 @@ pub async fn mesh_listener(event_stream: UnboundedSender<ServerUpdate>) {
     while let Ok((socket, _)) = listener.accept().await {
         let stream = event_stream.clone();
         tokio::spawn(async move {
-            println!("connect");
             decode_event(socket, stream).await;
         });
     }
@@ -55,6 +54,7 @@ async fn decode_event(mut socket: TcpStream, mut event_stream: UnboundedSender<S
                 .to_string(),
             }),
         };
+        println!("converted: {:?}", server_update);
         if let Some(server_update) = server_update {
             event_stream.unbounded_send(server_update).unwrap();
         }

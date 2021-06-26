@@ -8,7 +8,7 @@ pub fn initialize_db(path: &str) -> sled::Db {
     db
 }
 
-pub fn store_update(db: &mut sled::Db, update: ServerUpdate) {
+pub fn store_update(db: &sled::Db, update: ServerUpdate) {
     let updates = db.open_tree(b"updates").unwrap();
     let timestamp = match &update {
         ServerUpdate::Weather { device_id: _, timestamp, temperature: _, humidity: _, pressure: _ } => timestamp.to_rfc3339(),
