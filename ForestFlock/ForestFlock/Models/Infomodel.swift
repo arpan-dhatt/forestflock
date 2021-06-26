@@ -23,3 +23,16 @@ enum domicile: String, CaseIterable, Identifiable{
     var id: String{self.rawValue}
 }
 
+struct MicrophoneUpdate {
+    var device_id: UInt32
+    var timestamp: String
+    var sound_class: String
+}
+
+struct WeatherUpdate {
+    var device_id: UInt32
+    var timestamp: String
+    var temperature: Float
+    var humidity: Float
+    var pressure: Float
+}
