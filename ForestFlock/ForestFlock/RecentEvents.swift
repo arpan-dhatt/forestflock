@@ -21,14 +21,15 @@ struct RecentEvents: View {
                     ScrollView{
                         ForEach(viewModel.updates.reversed(), id: \.id){update in
                             if update.sound_class != nil {
-                                RecentEventCard(messege: "An Wild \(update.sound_class ?? "Error") Detected", type: "Sound", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.eventCardImage(name: update.sound_class!), collapsed: $collapsed).padding(.vertical).onTapGesture {
+                                RecentEventCard(messege: "An Wild \(update.sound_class ?? "Error") Detected", type: "Sound", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.eventCardImage(name: update.sound_class!), timestamp: update.timestamp, collapsed: $collapsed).padding(.vertical).onTapGesture {
                                     viewModel.selectedDeviceID = update.device_id
                                     showingSheet.toggle()
                                 }
                             }
+                            else {
+                                RecentWeatherEventCard(type: "Weather", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: "sun.max", temperature: update.temperature!, humidity: update.humidity!, pressure: update.pressure!, timestamp: "Hello", collapsed: $collapsed)
+                            }
                         }
-                        RecentEventCard(messege: "An Wild Vivek Detected", type: "Animals", latitude: 100.0, longitude: 100.0, picture: "ladybug", collapsed: $collapsed).padding(.vertical)
-                        RecentEventCard(messege: "An Wild Vivek Detected", type: "Animals", latitude: 100.0, longitude: 100.0, picture: "ladybug", collapsed: $collapsed).padding(.vertical)
                         
                     }
                     Spacer()

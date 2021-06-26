@@ -13,6 +13,7 @@ struct RecentEventCard: View {
     var latitude: Double
     var longitude: Double
     var picture: String
+    var timestamp: String
     @Binding var collapsed: Bool
     
     var body: some View {
@@ -21,6 +22,7 @@ struct RecentEventCard: View {
             HStack{
                 VStack(alignment: .leading){
                     Text(messege).font(.title).bold()
+                    Text("At \(timestamp)")
                     Text("Latitude: \(latitude)").padding(.vertical)
                     Text("Longitude: \(longitude)")
                 }.padding()

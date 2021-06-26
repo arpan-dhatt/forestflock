@@ -31,7 +31,7 @@ struct Devicesheet: View {
                     HStack{
                         ForEach(viewModel.updates.reversed(), id: \.id){update in
                         if update.device_id == device_id && update.sound_class != nil{
-                            RecentEventCard(messege: "An Wild \(update.sound_class ?? "Error") Detected", type: "Sound", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.eventCardImage(name: update.sound_class!), collapsed: $collapsed).padding(.vertical)
+                            RecentEventCard(messege: "An Wild \(update.sound_class ?? "Error") Detected", type: "Sound", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.eventCardImage(name: update.sound_class!), timestamp: update.timestamp, collapsed: $collapsed).padding(.vertical)
                         }
                     }.padding()
                     }
