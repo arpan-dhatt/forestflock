@@ -12,6 +12,7 @@ struct MapView: View {
 
     var body: some View {
         ZStack{
+            MapComponentView()
             HStack{
                 RecentEvents()
             }
