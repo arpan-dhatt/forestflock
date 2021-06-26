@@ -104,3 +104,36 @@ mod tests {
         assert_eq!(val, decode_discrete(&encode_discrete(val)));
     }
 }
+
+pub fn encode_gps_data(device_id: u32, latitude: f32, longitude: f32) -> [u8; 20] {
+    let mut out = [0u8; 20];
+    let device_id_bytes = device_id.to_be_bytes();
+    for i in 0..4 {
+        out[i] = device_id_bytes[i];
+    }
+    let latitude_bytes = latitude.to_be_bytes();
+    for i in 0..4 {
+        out[i+4] = latitude_bytes[i];
+    }
+    let longitude_bytes = longitude.to_be_bytes();
+    for i in 0..4 {
+        out[i+8] = longitude_bytes[i];
+    }
+    out
+}
+
+pub fn decode_gps_data(data: &[u8]) -> (u32, f32, f32) {
+    (
+        u32::from_be_bytes(u8_4_array(&data[0..4])),
+        f32::from_be_bytes(u8_4_array(&data[0..4])),
+        f32::from_be_bytes(u8_4_array(&data[0..4])),
+    )
+}
+
+fn u8_4_array(slice: &[u8]) -> [u8; 4] {
+    let mut out = [0u8; 4];
+    for i in 0..4 {
+        out[i] = slice[i];
+    }
+    out
+}
