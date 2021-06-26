@@ -35,7 +35,7 @@ struct RecentEvents: View {
                     Spacer()
                 }.frame(minWidth: 0, maxWidth: collapsed ? 0 : 400, minHeight: 100).animation(.easeInOut).background(Color.white).cornerRadius(10.0).shadow(radius: 10.0)
                     VStack{
-                        Spacer()
+                        
                     Button(action: {collapsed.toggle()}){
                         Image(systemName: self.collapsed ? "chevron.right" : "chevron.left").font(.system(size: 50)).foregroundColor(.white)
                     }.padding().background(Color("dharc-green")).cornerRadius(10.0)
