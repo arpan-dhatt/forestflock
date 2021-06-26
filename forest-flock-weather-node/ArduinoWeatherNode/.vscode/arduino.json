@@ -1,5 +1,5 @@
 {
     "board": "Intel:arc32:arduino_101",
-    "sketch": "WeatherStation.ino",
+    "sketch": "ForestFlockWeatherNode.ino",
     "port": "COM8"
 }
