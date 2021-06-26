@@ -32,16 +32,20 @@ struct MapComponentView: View {
                             }
                         if place.show {
                             VStack(alignment: .leading){
-                                Text("ID: \(place.device_id)").font(.title2).bold()
-                                Text("Latitude: \(place.latitude, specifier: "%.2f")").padding(.top)
-                                Text("Longitude: \(place.longitude, specifier: "%.2f")").padding(.bottom)
+                                Text("ID: \(place.device_id)").font(.title2).bold().padding(.top)
+                                Spacer()
+                                Text("Latitude: \(place.latitude, specifier: "%.2f")")
+                                Text("Longitude: \(place.longitude, specifier: "%.2f")")
+                                Spacer()
                                 Text("Type: \(place.type)")
+                                Spacer()
                                 Button(action:{
-                                    
+                                    viewModel.selectedDeviceID = place.device_id
+                                    showingSheet.toggle()
                                 }){
-                                    
+                                    Text("See Alerts").font(.system(size:20)).scaledToFill().padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color("dharc-green"), lineWidth: 1)).foregroundColor(Color("dharc-green")).padding(.bottom)
                                 }
-                            }.frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding().background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).offset(x:0, y:-100)
+                            }.frame(width: 200, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding().background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).offset(x:0, y:-100)
                         }
                         
                     }
@@ -49,7 +53,7 @@ struct MapComponentView: View {
                 }
             }.ignoresSafeArea(.all)
         }.sheet(isPresented: $showingSheet){
-            
+            Devicesheet(device_id: viewModel.selectedDeviceID)
         }
     }
 }
