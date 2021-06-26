@@ -11,11 +11,11 @@ pub fn initialize_db(path: &str) -> sled::Db {
 pub fn store_update(db: &mut sled::Db, update: ServerUpdate) {
     let updates = db.open_tree(b"updates").unwrap();
     let timestamp = match &update {
-        ServerUpdate::Weather { device_id, timestamp, temperature, humidity, pressure } => timestamp.to_rfc3339(),
-        ServerUpdate::Microphone { device_id, timestamp, class } => timestamp.to_rfc3339()
+        ServerUpdate::Weather { device_id: _, timestamp, temperature: _, humidity: _, pressure: _ } => timestamp.to_rfc3339(),
+        ServerUpdate::Microphone { device_id: _, timestamp, sound_class: _ } => timestamp.to_rfc3339()
     };
     let data = serde_json::to_vec(&update).unwrap();
-    updates.insert(timestamp.as_bytes(), data);
+    updates.insert(timestamp.as_bytes(), data).unwrap();
 }
 
 pub fn get_all_updates(db: &sled::Db) -> Vec<ServerUpdate> {
