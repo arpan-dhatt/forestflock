@@ -38,9 +38,7 @@ struct MapComponentView: View {
                     }
                     
                 }
-            }.ignoresSafeArea(.all).onTapGesture {
-                viewModel.showingSheet = true
-            }
+            }.ignoresSafeArea(.all)
         }
     }
 }
