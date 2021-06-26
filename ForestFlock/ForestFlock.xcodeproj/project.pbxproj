@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E70E0FF2686EF7B002A52D5 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E0FE2686EF7B002A52D5 /* ViewModel.swift */; };
+		6E70E1032686EFEB002A52D5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E1022686EFEB002A52D5 /* MainView.swift */; };
+		6E70E1072686F4BA002A52D5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E1062686F4BA002A52D5 /* MapView.swift */; };
+		6E70E10A2686F63B002A52D5 /* RecentEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E1092686F63B002A52D5 /* RecentEvents.swift */; };
 		7883044E2686DF6100DBECFB /* ForestFlockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7883044D2686DF6100DBECFB /* ForestFlockApp.swift */; };
 		788304502686DF6100DBECFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7883044F2686DF6100DBECFB /* ContentView.swift */; };
 		788304522686DF6200DBECFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788304512686DF6200DBECFB /* Assets.xcassets */; };
@@ -14,11 +18,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E70E0FE2686EF7B002A52D5 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModel.swift; path = ForestFlock/Models/ViewModel.swift; sourceTree = SOURCE_ROOT; };
+		6E70E1022686EFEB002A52D5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ForestFlock/MainView.swift; sourceTree = SOURCE_ROOT; };
+		6E70E1062686F4BA002A52D5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		6E70E1092686F63B002A52D5 /* RecentEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentEvents.swift; sourceTree = "<group>"; };
 		7883044A2686DF6100DBECFB /* ForestFlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForestFlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7883044D2686DF6100DBECFB /* ForestFlockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForestFlockApp.swift; sourceTree = "<group>"; };
-		7883044F2686DF6100DBECFB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7883044D2686DF6100DBECFB /* ForestFlockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ForestFlockApp.swift; path = ForestFlock/ForestFlockApp.swift; sourceTree = SOURCE_ROOT; };
+		7883044F2686DF6100DBECFB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ForestFlock/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		788304512686DF6200DBECFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		788304542686DF6200DBECFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		788304542686DF6200DBECFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Preview Assets.xcassets"; path = "ForestFlock/Preview Content/Preview Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		788304562686DF6200DBECFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E70E0FD2686EF62002A52D5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E70E0FE2686EF7B002A52D5 /* ViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		788304412686DF6100DBECFB = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +68,15 @@
 		7883044C2686DF6100DBECFB /* ForestFlock */ = {
 			isa = PBXGroup;
 			children = (
+				6E70E0FD2686EF62002A52D5 /* Models */,
 				7883044D2686DF6100DBECFB /* ForestFlockApp.swift */,
 				7883044F2686DF6100DBECFB /* ContentView.swift */,
 				788304512686DF6200DBECFB /* Assets.xcassets */,
 				788304562686DF6200DBECFB /* Info.plist */,
 				788304532686DF6200DBECFB /* Preview Content */,
+				6E70E1022686EFEB002A52D5 /* MainView.swift */,
+				6E70E1062686F4BA002A52D5 /* MapView.swift */,
+				6E70E1092686F63B002A52D5 /* RecentEvents.swift */,
 			);
 			path = ForestFlock;
 			sourceTree = "<group>";
@@ -139,7 +159,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				788304502686DF6100DBECFB /* ContentView.swift in Sources */,
+				6E70E1032686EFEB002A52D5 /* MainView.swift in Sources */,
+				6E70E1072686F4BA002A52D5 /* MapView.swift in Sources */,
+				6E70E0FF2686EF7B002A52D5 /* ViewModel.swift in Sources */,
 				7883044E2686DF6100DBECFB /* ForestFlockApp.swift in Sources */,
+				6E70E10A2686F63B002A52D5 /* RecentEvents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
