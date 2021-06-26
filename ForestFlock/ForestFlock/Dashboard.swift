@@ -22,9 +22,9 @@ struct Dashboard: View {
                     HStack {
                         Text("graph")
                     }
-                    HStack {
-                        Text("coverage")
-                        Text("health")
+                    HStack(spacing: 30.0) {
+                        CoverageWidget()
+                        HealthWidget()
                     }
                 }.padding(.top, 30.0)
             }
