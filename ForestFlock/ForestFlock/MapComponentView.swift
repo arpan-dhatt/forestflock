@@ -11,6 +11,7 @@ import MapKit
 struct MapComponentView: View {
     @State var coordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 32.88715, longitude: -97.04404), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     @EnvironmentObject var viewModel: ViewModel
+    @State var showingSheet = false
     
     var body: some View {
         ZStack{
@@ -30,15 +31,29 @@ struct MapComponentView: View {
                                 print("success")
                             }
                         if place.show {
-                            VStack{
-                                Text("Hello")
-                            }.frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding().background(Color.white).offset(x:0, y:-100)
+                            VStack(alignment: .leading){
+                                Text("ID: \(place.device_id)").font(.title2).bold().padding(.top)
+                                Spacer()
+                                Text("Latitude: \(place.latitude, specifier: "%.2f")")
+                                Text("Longitude: \(place.longitude, specifier: "%.2f")")
+                                Spacer()
+                                Text("Type: \(place.type)")
+                                Spacer()
+                                Button(action:{
+                                    viewModel.selectedDeviceID = place.device_id
+                                    showingSheet.toggle()
+                                }){
+                                    Text("See Alerts").font(.system(size:20)).scaledToFill().padding().overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color("dharc-green"), lineWidth: 1)).foregroundColor(Color("dharc-green")).padding(.bottom)
+                                }
+                            }.frame(width: 200, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding().background(Color.white).cornerRadius(10.0).shadow(radius: 10.0).offset(x:0, y:-100)
                         }
                         
                     }
                     
                 }
             }.ignoresSafeArea(.all)
+        }.sheet(isPresented: $showingSheet){
+            Devicesheet(device_id: viewModel.selectedDeviceID)
         }
     }
 }
