@@ -14,10 +14,10 @@ struct Dashboard: View {
             VStack(alignment: .leading) {
                 Text("Daeshboard").font(.bold(.system(size: 80))()).padding(.leading, 45.0)
                 VStack {
-                    HStack {
+                    HStack(spacing: 30.0) {
                         FireWidget()
-                        FireWidget()
-                        FireWidget()
+                        SpeciesWidget()
+                        HumanWidget()
                     }.padding([.leading, .trailing], 40.0)
                     HStack {
                         Text("graph")

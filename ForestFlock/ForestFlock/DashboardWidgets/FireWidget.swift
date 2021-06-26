@@ -12,9 +12,9 @@ struct FireWidget: View {
     
     var body: some View {
         VStack {
-            Text("\(level)").font(.system(size: 90)).foregroundColor(.white)
-            Text("Fire Threat").foregroundColor(.white).font(.largeTitle)
-        }.padding(30).background(LinearGradient(gradient: Gradient(colors: [Color(red: 240/255, green: 199/255, blue: 17/255), Color.orange]), startPoint: .top, endPoint: .bottom)).cornerRadius(30.0).frame(maxWidth: .infinity)
+            Text("\(level)").font(.system(size: 70)).foregroundColor(.white)
+            Text("Fire Threat").foregroundColor(.white).font(.headline)
+        }.padding(30).frame(width: 200, height: 200).background(LinearGradient(gradient: Gradient(colors: [Color(red: 240/255, green: 199/255, blue: 17/255), Color.orange]), startPoint: .top, endPoint: .bottom)).cornerRadius(30.0)
     }
 }
 

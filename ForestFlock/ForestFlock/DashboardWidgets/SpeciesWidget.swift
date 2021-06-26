@@ -13,8 +13,8 @@ struct SpeciesWidget: View {
     var body: some View {
         VStack {
             Text("\(count)").font(.system(size: 90)).foregroundColor(.white)
-            Text("Unique Species").foregroundColor(.white).font(.largeTitle)
-        }.padding(30).background(LinearGradient(gradient: Gradient(colors: [Color(red: 7/255, green: 217/255, blue: 139/255), Color.orange]), startPoint: .top, endPoint: .bottom)).cornerRadius(30.0).frame(maxWidth: .infinity)
+            Text("Unique Species").foregroundColor(.white).font(.headline)
+        }.padding(30).frame(width: 200, height: 200).background(LinearGradient(gradient: Gradient(colors: [Color(red: 7/255, green: 217/255, blue: 139/255), Color("dharc-green")]), startPoint: .top, endPoint: .bottom)).cornerRadius(30.0)
     }
 }
 
