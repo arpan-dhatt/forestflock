@@ -23,8 +23,8 @@ async fn main() {
     let stdin_to_ws = stdin_rx.map(Ok).forward(write);
     let ws_to_stdout = {
         read.for_each(|message| async {
-            let data = message.unwrap().into_data();
-            tokio::io::stdout().write_all(&data).await.unwrap();
+            let msg = message.unwrap().into_data();
+            tokio::io::stdout().write_all(&msg).await.unwrap();
         })
     };
 
