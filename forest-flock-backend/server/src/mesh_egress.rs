@@ -1,7 +1,7 @@
 use futures_channel::mpsc::UnboundedSender;
 use tokio::{io::AsyncReadExt, net::{TcpListener, TcpStream}};
 
-use crate::network_types::MeshUpdate;
+use network_types::MeshUpdate;
 
 
 pub async fn mesh_listener(event_stream: UnboundedSender<MeshUpdate>) {
