@@ -3,5 +3,7 @@
 members = [
 	"server",
 	"test-client",
-	"test-tcp"
+	"test-tcp",
+	"data-transcoder",
+	"hci"
 ]
