@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct FireWidget: View {
-    @State var level: String = "Low";
+    @State var level: String = "Low"
+    var desc: String = "Fire Threat"
     
     var body: some View {
         VStack {
-            Text("\(level)").font(.system(size: 70)).foregroundColor(.white)
-            Text("Fire Threat").foregroundColor(.white).font(.headline)
-        }.padding(30).frame(width: 200, height: 200).background(LinearGradient(gradient: Gradient(colors: [Color(red: 240/255, green: 199/255, blue: 17/255), Color.orange]), startPoint: .top, endPoint: .bottom)).cornerRadius(30.0)
+            Text("\(level)").font(.system(size: 40)).foregroundColor(.white)
+            Text(desc).foregroundColor(.white).font(.headline)
+        }.padding(10).frame(width: 150, height: 100).background(LinearGradient(gradient: Gradient(colors: [Color(red: 240/255, green: 199/255, blue: 17/255), Color.orange]), startPoint: .top, endPoint: .bottom)).cornerRadius(15.0)
     }
 }
 
