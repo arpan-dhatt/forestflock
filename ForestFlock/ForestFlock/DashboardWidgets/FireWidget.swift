@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FireWidget: View {
-    @State var level: String = "Low"
+    var level: String = "Low"
     var desc: String = "Fire Threat"
     
     var body: some View {
