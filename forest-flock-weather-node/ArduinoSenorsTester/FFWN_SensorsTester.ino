@@ -5,7 +5,7 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BMP085_U.h>
 
-float lat = 42.583645, lon = -83.2454883;
+float lat = 0, lon = 0;
 SoftwareSerial gpsSerial(3,4);
 TinyGPS gps;
 
@@ -38,7 +38,6 @@ void loop(){
     if(event.pressure){
         pressure = event.pressure;
     }
-    pressure = 1011.2;
     humidity = (dht1.readHumidity() + dht2.readHumidity())/2;
     temp_cel = (dht1.readTemperature() + dht2.readTemperature())/2;
     if(gpsSerial.available()){
