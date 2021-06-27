@@ -22,7 +22,7 @@ struct CoverageWidget: View {
                 Text("0.\(miles)").font(.system(size: 40)).foregroundColor(.white)
                 Text("Sq. Mi.").foregroundColor(.white).font(.headline)
             }
-        }.padding(30).frame(width: 225, height: 100).background(LinearGradient(gradient: Gradient(colors: [Color(red: 202/255, green: 114/255, blue: 214/255), Color(red: 145/255, green: 52/255, blue: 127/255)]), startPoint: .top, endPoint: .bottom)).cornerRadius(15.0)
+        }.padding(30).frame(width: 250, height: 200).background(LinearGradient(gradient: Gradient(colors: [Color(red: 202/255, green: 114/255, blue: 214/255), Color(red: 145/255, green: 52/255, blue: 127/255)]), startPoint: .top, endPoint: .bottom)).cornerRadius(15.0)
     }
 }
 
