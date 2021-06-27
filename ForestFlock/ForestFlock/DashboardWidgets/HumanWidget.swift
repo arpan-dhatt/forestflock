@@ -15,7 +15,7 @@ struct HumanWidget: View {
         VStack {
             Text("\(count)").font(.system(size: 40)).foregroundColor(.white)
             Text(desc).foregroundColor(.white).font(.headline)
-        }.padding(30).frame(width: 150, height: 100).background(LinearGradient(gradient: Gradient(colors: [Color(red: 148/255, green: 107/255, blue: 201/255), Color(red: 94/255, green: 27/255, blue: 130/255)]), startPoint: .top, endPoint: .bottom)).cornerRadius(15.0)
+        }.padding(30).frame(width: 250, height: 200).background(LinearGradient(gradient: Gradient(colors: [Color(red: 148/255, green: 107/255, blue: 201/255), Color(red: 94/255, green: 27/255, blue: 130/255)]), startPoint: .top, endPoint: .bottom)).cornerRadius(15.0)
     }
 }
 

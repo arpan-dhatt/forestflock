@@ -15,7 +15,7 @@ struct FireWidget: View {
         VStack {
             Text("\(level)").font(.system(size: 40)).foregroundColor(.white)
             Text(desc).foregroundColor(.white).font(.headline)
-        }.padding(10).frame(width: 150, height: 100).background(LinearGradient(gradient: Gradient(colors: [Color(red: 240/255, green: 199/255, blue: 17/255), Color.orange]), startPoint: .top, endPoint: .bottom)).cornerRadius(15.0)
+        }.padding(30).frame(width: 250, height: 200).background(LinearGradient(gradient: Gradient(colors: [Color(red: 240/255, green: 199/255, blue: 17/255), Color.orange]), startPoint: .top, endPoint: .bottom)).cornerRadius(15.0)
     }
 }
 

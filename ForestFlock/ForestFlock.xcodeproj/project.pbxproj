@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E4239DD2687FD7A003D602B /* RainWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4239DC2687FD7A003D602B /* RainWidget.swift */; };
 		6E45E5AA26877D4800965A41 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45E5A926877D4800965A41 /* Dashboard.swift */; };
 		6E45E5AD26877F8900965A41 /* Infomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45E5AC26877F8900965A41 /* Infomodel.swift */; };
 		6E45E5B026879AEE00965A41 /* Devicesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45E5AF26879AEE00965A41 /* Devicesheet.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E4239DC2687FD7A003D602B /* RainWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainWidget.swift; sourceTree = "<group>"; };
 		6E45E5A926877D4800965A41 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		6E45E5AC26877F8900965A41 /* Infomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infomodel.swift; sourceTree = "<group>"; };
 		6E45E5AF26879AEE00965A41 /* Devicesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devicesheet.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				78EDE0462687E26B00C02BA4 /* CoverageWidget.swift */,
 				78EDE0482687E46B00C02BA4 /* HealthWidget.swift */,
 				78CE74492687EC6D007B46C1 /* GraphView.swift */,
+				6E4239DC2687FD7A003D602B /* RainWidget.swift */,
 			);
 			path = DashboardWidgets;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				6E70E0FF2686EF7B002A52D5 /* ViewModel.swift in Sources */,
 				78EDE0432687DE5900C02BA4 /* SpeciesWidget.swift in Sources */,
 				6E45E5B32687A1E500965A41 /* RecentWeatherEventCard.swift in Sources */,
+				6E4239DD2687FD7A003D602B /* RainWidget.swift in Sources */,
 				6E45E5AA26877D4800965A41 /* Dashboard.swift in Sources */,
 				6E45E5AD26877F8900965A41 /* Infomodel.swift in Sources */,
 				78EDE0492687E46B00C02BA4 /* HealthWidget.swift in Sources */,

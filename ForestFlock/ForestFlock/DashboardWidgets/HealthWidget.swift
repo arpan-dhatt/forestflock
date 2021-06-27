@@ -22,7 +22,7 @@ struct HealthWidget: View {
                 Text("\(total)").font(.system(size: 40)).foregroundColor(.white)
                 Text("Total Events").foregroundColor(.white).font(.headline)
             }
-        }.padding(30).frame(width: 225, height: 100).background(LinearGradient(gradient: Gradient(colors: [Color(red: 245/255, green: 238/255, blue: 44/255), Color(red: 245/255, green: 195/255, blue: 44/255)]), startPoint: .top, endPoint: .bottom)).cornerRadius(15.0)
+        }.padding(30).frame(width: 425, height: 200).background(LinearGradient(gradient: Gradient(colors: [Color(red: 245/255, green: 238/255, blue: 44/255), Color(red: 245/255, green: 195/255, blue: 44/255)]), startPoint: .top, endPoint: .bottom)).cornerRadius(15.0)
     }
 }
 
