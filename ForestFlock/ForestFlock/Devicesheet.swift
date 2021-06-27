@@ -22,10 +22,10 @@ struct Devicesheet: View {
                         Text("Longitude: \(viewModel.getDeviceLongitude(device: device_id))").font(.headline).padding(.bottom)
                         Text("Type: \(viewModel.getDeviceType(device: device_id))").font(.body)
                         Spacer()
-                    }
+                    }.padding().offset(x: 0, y: 50)
                     Spacer()
                     VStack{
-                        Image("biden").resizable().frame(width:250, height: 250, alignment: .center)
+                        Image("ForestFlockWeatherNodeRender_WOShelf").resizable().frame(width:450, height: 550, alignment: .center)
                     }
                 }
                 ScrollView(.horizontal){
@@ -37,9 +37,9 @@ struct Devicesheet: View {
                         else if update.device_id == device_id && update.sound_class == nil {
                             RecentWeatherEventCard(type: "Weather", latitude: viewModel.getDeviceLatitude(device: update.device_id), longitude: viewModel.getDeviceLongitude(device: update.device_id), picture: viewModel.weatherCardImage(temperature: update.temperature!), temperature: update.temperature!, humidity: update.humidity!, pressure: update.pressure!, timestamp: update.timestamp, collapsed: $collapsed, internalCollapsed: false)
                         }
-                    }.padding()
+                        }
                     }
-                }
+                }.padding().offset(x: 0, y: -100)
             }.padding(50)
         
     }

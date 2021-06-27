@@ -13,7 +13,7 @@ struct MainView: View {
 
     var body: some View {
         TabView(selection: $tabSelection){
-            MapView().tabItem { Label("Map", systemImage:"map")}.tag(0)
+            MapView().tabItem { Label("Non-Biological Map", systemImage:"map")}.tag(0)
             Dashboard().tabItem { Label("Dashbord", systemImage:"bonjour") }.tag(1)
         }
     }

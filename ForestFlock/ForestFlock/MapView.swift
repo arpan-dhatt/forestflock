@@ -13,9 +13,15 @@ struct MapView: View {
     var body: some View {
         ZStack{
             MapComponentView()
-            HStack{
+            VStack{
+                VStack{
+                    Text("Non-Biological Activites").font(.largeTitle).bold()
+                    Text("Forest Flock").font(.title)
+                }.padding(50).background(Color.white).cornerRadius(10.0).shadow(radius: 10.0)
+                Spacer()
+            }.padding()
                 RecentEvents()
-            }
+                AllDevicesView()
         }
     }
 }

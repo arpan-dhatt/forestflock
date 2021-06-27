@@ -3,14 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E4239DD2687FD7A003D602B /* RainWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4239DC2687FD7A003D602B /* RainWidget.swift */; };
 		6E45E5AA26877D4800965A41 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45E5A926877D4800965A41 /* Dashboard.swift */; };
 		6E45E5AD26877F8900965A41 /* Infomodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45E5AC26877F8900965A41 /* Infomodel.swift */; };
 		6E45E5B026879AEE00965A41 /* Devicesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45E5AF26879AEE00965A41 /* Devicesheet.swift */; };
 		6E45E5B32687A1E500965A41 /* RecentWeatherEventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45E5B22687A1E500965A41 /* RecentWeatherEventCard.swift */; };
+		6E56FAD82687ECD700F04C86 /* AllDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E56FAD72687ECD700F04C86 /* AllDevicesView.swift */; };
+		6E56FADB2687EFBE00F04C86 /* DeviceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E56FADA2687EFBE00F04C86 /* DeviceCard.swift */; };
 		6E70E0FF2686EF7B002A52D5 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E0FE2686EF7B002A52D5 /* ViewModel.swift */; };
 		6E70E1032686EFEB002A52D5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E1022686EFEB002A52D5 /* MainView.swift */; };
 		6E70E1072686F4BA002A52D5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E70E1062686F4BA002A52D5 /* MapView.swift */; };
@@ -21,13 +24,23 @@
 		788304502686DF6100DBECFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7883044F2686DF6100DBECFB /* ContentView.swift */; };
 		788304522686DF6200DBECFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788304512686DF6200DBECFB /* Assets.xcassets */; };
 		788304552686DF6200DBECFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788304542686DF6200DBECFB /* Preview Assets.xcassets */; };
+		78CE74482687EC5A007B46C1 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 78CE74472687EC5A007B46C1 /* SwiftUICharts */; };
+		78CE744A2687EC6D007B46C1 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE74492687EC6D007B46C1 /* GraphView.swift */; };
+		78EDE0412687DAB800C02BA4 /* FireWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EDE0402687DAB800C02BA4 /* FireWidget.swift */; };
+		78EDE0432687DE5900C02BA4 /* SpeciesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EDE0422687DE5900C02BA4 /* SpeciesWidget.swift */; };
+		78EDE0452687E00B00C02BA4 /* HumanWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EDE0442687E00B00C02BA4 /* HumanWidget.swift */; };
+		78EDE0472687E26B00C02BA4 /* CoverageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EDE0462687E26B00C02BA4 /* CoverageWidget.swift */; };
+		78EDE0492687E46B00C02BA4 /* HealthWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EDE0482687E46B00C02BA4 /* HealthWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E4239DC2687FD7A003D602B /* RainWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainWidget.swift; sourceTree = "<group>"; };
 		6E45E5A926877D4800965A41 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		6E45E5AC26877F8900965A41 /* Infomodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infomodel.swift; sourceTree = "<group>"; };
 		6E45E5AF26879AEE00965A41 /* Devicesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devicesheet.swift; sourceTree = "<group>"; };
 		6E45E5B22687A1E500965A41 /* RecentWeatherEventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentWeatherEventCard.swift; sourceTree = "<group>"; };
+		6E56FAD72687ECD700F04C86 /* AllDevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDevicesView.swift; sourceTree = "<group>"; };
+		6E56FADA2687EFBE00F04C86 /* DeviceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCard.swift; sourceTree = "<group>"; };
 		6E70E0FE2686EF7B002A52D5 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModel.swift; path = ForestFlock/Models/ViewModel.swift; sourceTree = SOURCE_ROOT; };
 		6E70E1022686EFEB002A52D5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ForestFlock/MainView.swift; sourceTree = SOURCE_ROOT; };
 		6E70E1062686F4BA002A52D5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -40,6 +53,12 @@
 		788304512686DF6200DBECFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		788304542686DF6200DBECFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Preview Assets.xcassets"; path = "ForestFlock/Preview Content/Preview Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		788304562686DF6200DBECFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78CE74492687EC6D007B46C1 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		78EDE0402687DAB800C02BA4 /* FireWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWidget.swift; sourceTree = "<group>"; };
+		78EDE0422687DE5900C02BA4 /* SpeciesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesWidget.swift; sourceTree = "<group>"; };
+		78EDE0442687E00B00C02BA4 /* HumanWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanWidget.swift; sourceTree = "<group>"; };
+		78EDE0462687E26B00C02BA4 /* CoverageWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageWidget.swift; sourceTree = "<group>"; };
+		78EDE0482687E46B00C02BA4 /* HealthWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78CE74482687EC5A007B46C1 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +101,7 @@
 		7883044C2686DF6100DBECFB /* ForestFlock */ = {
 			isa = PBXGroup;
 			children = (
+				78EDE03F2687DA8E00C02BA4 /* DashboardWidgets */,
 				6E70E0FD2686EF62002A52D5 /* Models */,
 				7883044D2686DF6100DBECFB /* ForestFlockApp.swift */,
 				7883044F2686DF6100DBECFB /* ContentView.swift */,
@@ -95,6 +116,8 @@
 				6E45E5A926877D4800965A41 /* Dashboard.swift */,
 				6E45E5AF26879AEE00965A41 /* Devicesheet.swift */,
 				6E45E5B22687A1E500965A41 /* RecentWeatherEventCard.swift */,
+				6E56FAD72687ECD700F04C86 /* AllDevicesView.swift */,
+				6E56FADA2687EFBE00F04C86 /* DeviceCard.swift */,
 			);
 			path = ForestFlock;
 			sourceTree = "<group>";
@@ -105,6 +128,20 @@
 				788304542686DF6200DBECFB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		78EDE03F2687DA8E00C02BA4 /* DashboardWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				78EDE0402687DAB800C02BA4 /* FireWidget.swift */,
+				78EDE0422687DE5900C02BA4 /* SpeciesWidget.swift */,
+				78EDE0442687E00B00C02BA4 /* HumanWidget.swift */,
+				78EDE0462687E26B00C02BA4 /* CoverageWidget.swift */,
+				78EDE0482687E46B00C02BA4 /* HealthWidget.swift */,
+				78CE74492687EC6D007B46C1 /* GraphView.swift */,
+				6E4239DC2687FD7A003D602B /* RainWidget.swift */,
+			);
+			path = DashboardWidgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +160,9 @@
 			dependencies = (
 			);
 			name = ForestFlock;
+			packageProductDependencies = (
+				78CE74472687EC5A007B46C1 /* SwiftUICharts */,
+			);
 			productName = ForestFlock;
 			productReference = 7883044A2686DF6100DBECFB /* ForestFlock.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +190,9 @@
 				Base,
 			);
 			mainGroup = 788304412686DF6100DBECFB;
+			packageReferences = (
+				78CE74462687EC5A007B46C1 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 7883044B2686DF6100DBECFB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -180,14 +223,25 @@
 				6E70E1032686EFEB002A52D5 /* MainView.swift in Sources */,
 				6E70E1072686F4BA002A52D5 /* MapView.swift in Sources */,
 				6E70E0FF2686EF7B002A52D5 /* ViewModel.swift in Sources */,
+				78EDE0432687DE5900C02BA4 /* SpeciesWidget.swift in Sources */,
 				6E45E5B32687A1E500965A41 /* RecentWeatherEventCard.swift in Sources */,
+				6E4239DD2687FD7A003D602B /* RainWidget.swift in Sources */,
 				6E45E5AA26877D4800965A41 /* Dashboard.swift in Sources */,
 				6E45E5AD26877F8900965A41 /* Infomodel.swift in Sources */,
+				78EDE0492687E46B00C02BA4 /* HealthWidget.swift in Sources */,
 				7883044E2686DF6100DBECFB /* ForestFlockApp.swift in Sources */,
 				6E45E5B026879AEE00965A41 /* Devicesheet.swift in Sources */,
+				78CE744A2687EC6D007B46C1 /* GraphView.swift in Sources */,
 				6EF46A4226870878009B8AA1 /* RecentEventCard.swift in Sources */,
+				78EDE0452687E00B00C02BA4 /* HumanWidget.swift in Sources */,
 				6EF46A3F2687071A009B8AA1 /* MapComponentView.swift in Sources */,
 				6E70E10A2686F63B002A52D5 /* RecentEvents.swift in Sources */,
+				78EDE0412687DAB800C02BA4 /* FireWidget.swift in Sources */,
+				78EDE0472687E26B00C02BA4 /* CoverageWidget.swift in Sources */,
+				6E56FAD82687ECD700F04C86 /* AllDevicesView.swift in Sources */,
+				6EF46A3F2687071A009B8AA1 /* MapComponentView.swift in Sources */,
+				6E70E10A2686F63B002A52D5 /* RecentEvents.swift in Sources */,
+				6E56FADB2687EFBE00F04C86 /* DeviceCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +430,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		78CE74462687EC5A007B46C1 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		78CE74472687EC5A007B46C1 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78CE74462687EC5A007B46C1 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 788304422686DF6100DBECFB /* Project object */;
 }

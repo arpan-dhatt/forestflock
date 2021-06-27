@@ -22,7 +22,7 @@ enum domicile: String, CaseIterable, Identifiable{
     var id: String{self.rawValue}
 }
 
-struct Update {
+struct Update : Codable {
     var device_id: UInt32
     var timestamp: String
     var sound_class: String?
