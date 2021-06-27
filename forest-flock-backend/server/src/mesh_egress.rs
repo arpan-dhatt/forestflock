@@ -45,10 +45,10 @@ async fn decode_event(mut socket: TcpStream, mut event_stream: UnboundedSender<S
                 device_id,
                 timestamp: Utc::now(),
                 sound_class: match class {
-                    0 => "Zero",
-                    1 => "One",
-                    2 => "Two",
-                    3 => "Three",
+                    0 => "Fire",
+                    1 => "Gunshot",
+                    2 => "Chainsaw",
+                    3 => "Human",
                     _ => "Unknown",
                 }
                 .to_string(),
