@@ -84,5 +84,44 @@ class ViewModel: ObservableObject {
         return "No Recent Events"
     }
     
-     
+    var socketTask: URLSessionWebSocketTask?
+    
+    func initializeConnection() {
+        let url = "http://192.168.86.56:8080"
+        print(url)
+        socketTask = URLSession.shared.webSocketTask(with: URL(string: url)!)
+        
+        socketTask?.resume()
+        
+        receive()
+        print("begun")
+    }
+    
+    func receive() {
+        self.socketTask?.receive { [weak self] result in
+            print(result)
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let message):
+                switch message {
+                case .string(let text):
+                    print(text)
+                case .data(let data):
+                    self?.handleReception(data)
+                }
+                self?.receive()
+            }
+        }
+    }
+    
+    func handleReception(_ data: Data) {
+        let decoded = try! JSONDecoder().decode(WebsocketMessage.self, from: data)
+        print(decoded)
+        self.updates.append(contentsOf: decoded.data)
+    }
+}
+
+struct WebsocketMessage : Codable {
+    var data: [Update]
 }
