@@ -35,7 +35,7 @@ struct Dashboard: View {
                         HStack(spacing: 30.0) {
                             SpeciesWidget(desc: "Total")
                             HumanWidget(desc: "Species")
-                            FireWidget()
+                            FireWidget(level: "High", desc: "Consistency")
                             CoverageWidget()
                             HealthWidget()
                         }.padding([.leading, .trailing], 40.0).padding(.bottom, 50)
