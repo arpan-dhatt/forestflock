@@ -17,6 +17,10 @@ class ViewModel: ObservableObject {
     @Published var updates: [Update] = [Update.init(device_id: 125, timestamp: "sdfaafdas", sound_class: "gunshot", temperature: nil, humidity: nil, pressure: nil), Update.init(device_id: 125, timestamp: "sdfaafdas", sound_class: "fire", temperature: nil, humidity: nil, pressure: nil), Update.init(device_id: 126, timestamp: "afasfasdfasdfsa", sound_class: nil, temperature: 10.0, humidity: 10.0, pressure: 10.0), Update.init(device_id: 126, timestamp: "afafasdfsa", sound_class: nil, temperature: 10.0, humidity: 10.0, pressure: 10.0)]
     @Published var devices: [Device] = [Device.init(device_id: 124, type: "Sound", latitude: 32.96773, longitude: -97.13125, color: .gray), Device.init(device_id: 125, type: "Sound", latitude: 32.98047, longitude: -97.00058, color: .green), Device.init(device_id: 12, type: "Weather", latitude: 32.85617, longitude: -97.16375, color: .gray), Device.init(device_id: 126, type: "Weather", latitude: 32.72081, longitude: -97.10330, color: .gray)]
     
+    init() {
+        initializeConnection()
+    }
+    
     //Functions
     func eventCardImage(name: String) -> String{
         if name == "gunshot"{
@@ -87,7 +91,7 @@ class ViewModel: ObservableObject {
     var socketTask: URLSessionWebSocketTask?
     
     func initializeConnection() {
-        let url = "http://192.168.86.56:8080"
+        let url = "ws://192.168.86.56:8080"
         print(url)
         socketTask = URLSession.shared.webSocketTask(with: URL(string: url)!)
         
@@ -118,10 +122,23 @@ class ViewModel: ObservableObject {
     func handleReception(_ data: Data) {
         let decoded = try! JSONDecoder().decode(WebsocketMessage.self, from: data)
         print(decoded)
-        self.updates.append(contentsOf: decoded.data)
+        DispatchQueue.main.async {
+            self.updates.append(contentsOf: decoded.data.map({e in
+                return Update(device_id: e.device_id, timestamp: e.timestamp, sound_class: e.sound_class, temperature: e.temperature, humidity: e.humidity, pressure: e.pressure)
+            }))
+        }
     }
 }
 
 struct WebsocketMessage : Codable {
-    var data: [Update]
+    var data: [WebsocketUpdate]
+}
+
+struct WebsocketUpdate : Codable {
+    var device_id: UInt32
+    var timestamp: String
+    var sound_class: String?
+    var temperature: Float?
+    var humidity: Float?
+    var pressure: Float?
 }
