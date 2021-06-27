@@ -13,7 +13,7 @@ struct Dashboard: View {
             VStack(alignment: .leading) {
                 Text("Daeshboard").font(.system(size: 80, weight: .bold)).padding(.leading, 45.0)
                 VStack(alignment: .leading) {
-                    Text("Human Events").font(.bold(.system(size: 40))()).padding(.leading, 45.0)
+                    Text("Human Events").font(.system(size: 40, weight: .bold)).padding(.leading, 45.0)
                     ScrollView(.horizontal) {
                         HStack(spacing: 30.0) {
                             FireWidget()
@@ -29,7 +29,7 @@ struct Dashboard: View {
                     }.padding([.leading, .trailing], 40.0)
                 }.padding(.top, 30.0)
                 VStack(alignment: .leading) {
-                    Text("Natural Events").font(.bold(.system(size: 40))()).padding(.leading, 45.0)
+                    Text("Natural Events").font(.system(size: 40, weight: .bold)).padding(.leading, 45.0)
                     ScrollView(.horizontal) {
                         HStack(spacing: 30.0) {
                             SpeciesWidget()
